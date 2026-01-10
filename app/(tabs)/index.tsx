@@ -3,7 +3,6 @@ import { Image, Pressable, StyleSheet, View } from "react-native";
 
 type ImageButtonProps = {
   idle: any;
-  hover: any;
   active: any;
   onPress: () => void;
 };
@@ -21,18 +20,32 @@ export default function MainMenu() {
 
         {/* Buttons */}
         <View style={styles.buttons}>
+          {/*Play Button*/}
           <ImageButton
             idle={require("@/assets/images/main_menu/play_idle.png")}
-            hover={require("@/assets/images/main_menu/play_press.png")}
             active={require("@/assets/images/main_menu/play_press.png")}
-            onPress={() => console.log("Start Game")}
+            onPress={() => console.log("Play")}
           />
 
+          {/*Quit Button*/}
           <ImageButton
             idle={require("@/assets/images/main_menu/quit_idle.png")}
-            hover={require("@/assets/images/main_menu/quit_press.png")}
             active={require("@/assets/images/main_menu/quit_press.png")}
             onPress={() => console.log("Options")}
+          />
+        </View>
+        <View style={styles.rowButtons}>
+          {/*Settings Button*/}
+          <ImageButton
+            idle={require("@/assets/images/main_menu/settings_idle.png")}
+            active={require("@/assets/images/main_menu/settings_press.png")}
+            onPress={() => console.log("Settings")}
+          />
+          {/*Menu Button*/}
+          <ImageButton
+            idle={require("@/assets/images/main_menu/menu_idle.png")}
+            active={require("@/assets/images/main_menu/menu_press.png")}
+            onPress={() => console.log("Menu")}
           />
         </View>
       </View>
@@ -40,7 +53,7 @@ export default function MainMenu() {
   );
 }
 
-function ImageButton({ idle, hover, active, onPress }: ImageButtonProps) {
+function ImageButton({ idle, active, onPress }: ImageButtonProps) {
   const [pressed, setPressed] = useState(false);
 
   return (
@@ -80,4 +93,8 @@ const styles = StyleSheet.create({
     width: 256,
     height: 96,
   },
+  rowButtons: {
+  flexDirection: "row",
+  gap: 0,
+},
 });
