@@ -1,11 +1,12 @@
 import ImageButton from "@/app/utils/ImageButton";
+import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 export default function MainMenu() {
+  const router = useRouter();
   return (
     <View style={styles.root}>
       <View style={styles.container}>
-        {/* Title Image */}
         {/* Buttons */}
         <View style={styles.rowButtons}>
           {/*Play Button*/}
@@ -13,16 +14,16 @@ export default function MainMenu() {
             idle={require("@/assets/images/level_select/lvl_1_idle.png")}
             active={require("@/assets/images/level_select/lvl_1_press.png")}
             sound={require("@/assets/audio/magic_shing.mp3")}
-            onPress={() => console.log("Playing?")}
+            onPress={() => console.log("lEVel 1")}
           />
         </View>.
-        <View style={styles.rowButtons}>
-          {/*Settings Button*/}
+        <View style={styles.rowButtons}>/
+          {/*Return Button*/}
           <ImageButton
-            idle={require("@/assets/images/main_menu/settings_idle.png")}
-            active={require("@/assets/images/main_menu/settings_press.png")}
+            idle={require("@/assets/images/general/back_idle.png")}
+            active={require("@/assets/images/general/back_press.png")}
             sound={require("@/assets/audio/magic_shing.mp3")}
-            onPress={() => console.log("Settings")}
+            onPress={() => router.back}
           />
           {/*Menu Button*/}
           <ImageButton
