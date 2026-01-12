@@ -16,31 +16,31 @@ export default function MainMenu() {
   ];
 
   // Function to play a track
-  const playTrack = async (index: number) => {
-    // Unload previous sound
-    if (bgm) {
-      await bgm.stopAsync();
-      await bgm.unloadAsync();
-    }
-
-    // Load new track
-    const { sound } = await Audio.Sound.createAsync(tracks[index]);
-    setBgm(sound);
-
-    // Set a callback for when track ends
-    sound.setOnPlaybackStatusUpdate((status) => {
-      if (status.isLoaded && status.didJustFinish) {
-        // Move to next track, loop to start if at end
-        const nextIndex = (index + 1) % tracks.length;
-        setTrackIndex(nextIndex);
-      }
-    });
-
-    await sound.playAsync();
-  };
-
   // Start playback and handle track changes
   useEffect(() => {
+    const playTrack = async (index: number) => {
+      // Unload previous sound
+      if (bgm) {
+        await bgm.stopAsync();
+        await bgm.unloadAsync();
+      }
+
+      // Load new track
+      const { sound } = await Audio.Sound.createAsync(tracks[index]);
+      setBgm(sound);
+
+      // Set a callback for when track ends
+      sound.setOnPlaybackStatusUpdate((status) => {
+        if (status.isLoaded && status.didJustFinish) {
+          // Move to next track, loop to start if at end
+          const nextIndex = (index + 1) % tracks.length;
+          setTrackIndex(nextIndex);
+        }
+      });
+
+      await sound.playAsync();
+    };
+
     playTrack(trackIndex);
 
     return () => {
@@ -49,7 +49,7 @@ export default function MainMenu() {
         bgm.unloadAsync();
       }
     };
-  }, [trackIndex]);
+  }, [trackIndex, bgm]);
   return (
     <View style={styles.root}>
       <View style={styles.container}>
