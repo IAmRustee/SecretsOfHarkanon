@@ -76,3 +76,21 @@ body {
   z-index: 999;
 }
 
+.menu {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+}
+
+.menu h1 {
+  margin-bottom: 20px;
+}
+
+.menu button {
+  font-size: 18px;
+  padding: 10px 20px;
+}
