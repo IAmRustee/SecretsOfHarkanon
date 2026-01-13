@@ -1,18 +1,15 @@
-import { isPlayerInShadow } from "./light";
+import { state } from "./gameState";
 
-export function applyTriggers(state) {
-  const pressed = state.plates.some(p =>
-    state.stones.some(s => s.x === p.x && s.y === p.y)
-  );
+function stoneAt(x, y) {
+  return state.stones.some(s => s.x === x && s.y === y);
+}
 
-  state.walls = state.walls.map(w => ({
-    ...w,
-    raised: pressed
-  }));
+export function updatePlates() {
+  state.plates.forEach(plate => {
+    const active =
+      (state.player.x === plate.x && state.player.y === plate.y) ||
+      stoneAt(plate.x, plate.y);
 
-  if (!isPlayerInShadow(state.player, state.walls)) {
-    state.gameOver = true;
-  }
-
-  return { ...state };
+    state.gates[plate.gateId].open = active;
+  });
 }

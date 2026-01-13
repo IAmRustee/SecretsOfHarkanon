@@ -1,6 +1,9 @@
 import { TILE } from "../game/constants";
+import { state } from "../game/gameState";
 
-export default function Player({ x, y }) {
+export default function Player() {
+  const { x, y } = state.player;
+
   return (
     <img
       src="/tiles/player/player_idle.png"
@@ -10,8 +13,8 @@ export default function Player({ x, y }) {
         top: y * TILE,
         width: TILE,
         height: TILE,
-        zIndex: 5,
-        imageRendering: "pixelated"
+        imageRendering: "pixelated",
+        zIndex: 4,
       }}
     />
   );

@@ -1,24 +1,22 @@
-import { useState } from "react";
-import TileMap from "./components/TileMap";
-import Player from "./components/Player";
-import Controls from "./components/Controls";
-import { useControls } from "./game/useControls";
+import { useEffect, useState } from "react";
+import Map from "./components/Map";
+import { movePlayer } from "./game/movement";
 import "./App.css";
 
 export default function App() {
-  const [player, setPlayer] = useState({ x: 2, y: 2 });
+  const [, forceUpdate] = useState(0);
 
-  const move = (dx, dy) => {
-    setPlayer(p => ({ x: p.x + dx, y: p.y + dy }));
-  };
+  useEffect(() => {
+    const onKey = e => {
+      if (e.key === "ArrowUp") movePlayer(0, -1);
+      if (e.key === "ArrowDown") movePlayer(0, 1);
+      if (e.key === "ArrowLeft") movePlayer(-1, 0);
+      if (e.key === "ArrowRight") movePlayer(1, 0);
+      forceUpdate(n => n + 1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
-  useControls(move);
-
-  return (
-    <div className="app">
-      <TileMap />
-      <Player x={player.x} y={player.y} />
-      <Controls move={move} />
-    </div>
-  );
+  return <Map />;
 }

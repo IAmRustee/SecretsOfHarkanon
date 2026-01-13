@@ -1,11 +1,18 @@
-import { TILE } from "../game/gameState";
+import { TILE } from "../game/constants";
 
-export default function Stone({ state }) {
-  return state.stones.map((s, i) => (
-    <div
-      key={i}
-      className="entity stone"
-      style={{ left: s.x * TILE, top: s.y * TILE }}
+export default function Stone({ x, y }) {
+  return (
+    <img
+      src="/tiles/objects/moonstone.png"
+      style={{
+        position: "absolute",
+        left: x * TILE,
+        top: y * TILE,
+        width: TILE,
+        height: TILE,
+        imageRendering: "pixelated",
+        zIndex: 3,
+      }}
     />
-  ));
+  );
 }
