@@ -1,0 +1,53 @@
+/* index.css */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #0c0c0c;
+  font-family: sans-serif;
+}
+
+.screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  width: 280px;
+  margin-bottom: 48px;
+  image-rendering: pixelated;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.triangle-layout {
+  position: relative;
+  width: 260px;
+  height: 200px;
+}
+
+.triangle-layout button:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.triangle-layout button:nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.triangle-layout button:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
