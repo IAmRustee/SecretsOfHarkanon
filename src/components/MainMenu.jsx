@@ -1,7 +1,15 @@
+
+import title from "../assets/main_menu/title.png";
+
 export default function MainMenu({ onStart }) {
   return (
     <div className="menu">
-      <h1>Secrets of Harkanon</h1>
+      <img 
+        src={title}
+        alt="Silver Moon City"
+        className="title"
+        draggable={false}
+      />
 
       <button onClick={onStart}>
         Start Game

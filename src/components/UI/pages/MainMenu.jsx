@@ -1,6 +1,6 @@
 // pages/MainMenu.jsx
 import ImageButton from "../components/ImageButton";
-import title from "../assets/title.png";
+import title from "../assets/main_menu/title.png";
 import playBtn from "../assets/btn-play.png";
 import quitBtn from "../assets/btn-quit.png";
 
