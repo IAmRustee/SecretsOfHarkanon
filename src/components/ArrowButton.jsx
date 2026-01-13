@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function ArrowButton({ dir, onPress }) {
   const [pressed, setPressed] = useState(false);
 
-  const src = `/ui/${dir}_${pressed ? "pressed" : "idle"}.png`;
+  const src = `/ui/button_${dir}_${pressed ? "pressed" : "idle"}.png`;
 
   return (
     <img
