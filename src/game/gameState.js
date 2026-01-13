@@ -19,8 +19,7 @@ export const state = {
   ],
 
   player: {
-    x: 2,
-    y: 9,
+    x: 2, y: 9,
     dir: "right",
   },
 
@@ -45,26 +44,12 @@ export const state = {
     { x: 7, y: 5, open: false },
   ],
 
-  traps: [
-  { x: 2, y: 4, open: false },
-  { x: 6, y: 5, open: false },
-  { x: 7, y: 5, open: false },
-
+  shadows: [
+  { x: 7, y: 3 },
+  { x: 8, y: 3 },
+  { x: 7, y: 4 },
+  { x: 8, y: 4 },
   ],
 
-  shadow: [
-  { x: 7, y: 3, open: false },
-  { x: 8, y: 3, open: false },
-  { x: 7, y: 4, open: false },
-  { x: 8, y: 4, open: false },
-
-  ],
-
-  finished: false, 
-  finishTiles: [
-    { x: 7, y: 3 },
-    { x: 8, y: 3 },
-    { x: 7, y: 4 },
-    { x: 8, y: 4 },
-  ]
+  levelComplete: false, 
 };

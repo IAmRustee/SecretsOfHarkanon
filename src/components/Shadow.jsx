@@ -1,5 +1,4 @@
 import { TILE } from "../game/constants";
-import { state } from "../game/gameState";
 
 export default function Shadow({ x, y }) {
   return (
@@ -7,10 +6,13 @@ export default function Shadow({ x, y }) {
       src="/tiles/shadow/shadow.png"
       style={{
         position: "absolute",
-        left: x * 16,
-        top: y * 16,
-        zIndex: 2,
-        pointerEvents: "none"
+        left: x * TILE,
+        top: y * TILE,
+        width: TILE,
+        height: TILE,
+        imageRendering: "pixelated",
+        zIndex: 1,        // above floor
+        pointerEvents: "none",
       }}
     />
   );

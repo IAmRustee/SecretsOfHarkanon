@@ -1,4 +1,5 @@
 import { state } from "./gameState";
+import { isInShadow } from "./shadow";
 
 const DIR = {
   up: { x: 0, y: -1 },
@@ -12,7 +13,17 @@ function stoneAt(x, y) {
 }
 
 function wallAt(x, y) {
+  if (
+    y < 0 ||
+    y >= state.map.length ||
+    x < 0 ||
+    x >= state.map[0].length
+  ) {
+    return true;
+  }
+
   if (state.map[y][x] === "#") return true;
+
   return state.gates.some(g => !g.open && g.x === x && g.y === y);
 }
 
@@ -27,6 +38,8 @@ function updatePlates() {
 }
 
 export function movePlayer(dx, dy) {
+  if (state.levelComplete) return;
+
   const p = state.player;
 
   if (dx === 1) p.dir = "right";
@@ -43,12 +56,14 @@ export function movePlayer(dx, dy) {
   if (frontStone) {
     const sx = frontStone.x + dx;
     const sy = frontStone.y + dy;
+
     if (wallAt(sx, sy) || stoneAt(sx, sy)) return;
+
     frontStone.x = sx;
     frontStone.y = sy;
   }
 
-  // PULL (uses last horizontal direction, which is what we want)
+  // PULL
   const back = DIR[p.dir];
   const bx = p.x - back.x;
   const by = p.y - back.y;
@@ -63,4 +78,8 @@ export function movePlayer(dx, dy) {
   p.y = ny;
 
   updatePlates();
+
+  if (isInShadow(nx, ny)) {
+    state.levelComplete = true;
+  }
 }

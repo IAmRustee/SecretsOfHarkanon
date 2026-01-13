@@ -3,6 +3,9 @@ import { TILE } from "../game/constants";
 import Stone from "./Stone";
 import Player from "./Player";
 import PressurePlate from "./PressurePlate";
+import Shadow from "./Shadow";
+import LevelComplete from "./LevelComplete";
+
 
 export default function Map() {
   return (
@@ -74,7 +77,14 @@ export default function Map() {
         <Stone key={i} x={s.x} y={s.y} />
       ))}
 
+      {/* Shadows */}
+      {state.shadows.map((s, i) => (
+        <Shadow key={i} x={s.x} y={s.y} />
+      ))}
+
+
       <Player />
+      {state.levelComplete && <LevelComplete />}
     </div>
   );
 }
