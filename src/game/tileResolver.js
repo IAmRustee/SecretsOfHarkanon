@@ -1,7 +1,8 @@
 export function getTileSprite(symbol) {
   switch (symbol) {
     case "#": return "/tiles/wall/wall_1.png";
-    case "b": return "/tiles/objects/blocker_inactive_vert.png";
+    case "b": return "/tiles/objects/spikes_inactive.png";
+    case "n": return "/tiles/objects/spikes_active.png";
     case "3": return "/tiles/wall/wall_1_top.png";
     case ".": return "/tiles/floor/tile_1.png";
     case "P": return "/tiles/objects/pressure_plate_1.png";
