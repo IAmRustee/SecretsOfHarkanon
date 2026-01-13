@@ -107,3 +107,31 @@ body {
   z-index: 999;
   font-family: monospace;
 }
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dpad {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(3, 64px);
+  gap: 4px;
+
+  z-index: 1000;
+}
+
+.interact {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
