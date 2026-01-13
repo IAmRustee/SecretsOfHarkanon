@@ -1,4 +1,10 @@
 import { GRID_SIZE } from "./gameState";
+import { movePlayer } from "../game/movement";
+
+movePlayer(0, -1);
+movePlayer(0, 1); 
+movePlayer(-1, 0);
+movePlayer(1, 0);
 
 export function move(state, dx, dy) {
   const p = state.player;

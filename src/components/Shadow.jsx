@@ -1,17 +1,16 @@
 import { TILE } from "../game/gameState";
 
-export default function Shadow({ state }) {
-  return state.walls.map((w, i) =>
-    w.raised ? (
-      <div
-        key={i}
-        className="entity shadow"
-        style={{
-          left: w.x * TILE,
-          top: (w.y + 1) * TILE,
-          zIndex: 1
-        }}
-      />
-    ) : null
+export default function Shadow({ x, y }) {
+  return (
+    <img
+      src="/tiles/shadow/shadow.png"
+      style={{
+        position: "absolute",
+        left: x * 16,
+        top: y * 16,
+        zIndex: 2,
+        pointerEvents: "none"
+      }}
+    />
   );
 }

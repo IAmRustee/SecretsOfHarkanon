@@ -1,16 +1,17 @@
-import { TILE } from "../game/gameState";
-import { isPlayerInShadow } from "../game/light";
+import { TILE } from "../game/constants";
 
-export default function Player({ state }) {
-  const safe = isPlayerInShadow(state.player, state.walls);
-
+export default function Player({ x, y }) {
   return (
-    <div
-      className={`entity player ${!safe ? "silver" : ""}`}
+    <img
+      src="/tiles/player/player_idle.png"
       style={{
-        left: state.player.x * TILE,
-        top: state.player.y * TILE,
-        zIndex: 2
+        position: "absolute",
+        left: x * TILE,
+        top: y * TILE,
+        width: TILE,
+        height: TILE,
+        zIndex: 5,
+        imageRendering: "pixelated"
       }}
     />
   );

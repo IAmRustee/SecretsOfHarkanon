@@ -1,8 +1,7 @@
-export default function GameOver({ onRestart }) {
+export default function GameOver() {
   return (
-    <div className="gameover">
-      <p>☠ YOU TURNED TO SILVER ☠</p>
-      <button onClick={onRestart}>Restart</button>
+    <div className="game-over">
+      GAME OVER
     </div>
   );
 }

@@ -1,20 +1,24 @@
 import { useState } from "react";
-import Map from "./components/Map";
+import TileMap from "./components/TileMap";
+import Player from "./components/Player";
 import Controls from "./components/Controls";
-import GameOver from "./components/GameOver";
-import { initialState } from "./game/gameState";
+import { useControls } from "./game/useControls";
 import "./App.css";
 
 export default function App() {
-  const [state, setState] = useState(initialState);
+  const [player, setPlayer] = useState({ x: 2, y: 2 });
+
+  const move = (dx, dy) => {
+    setPlayer(p => ({ x: p.x + dx, y: p.y + dy }));
+  };
+
+  useControls(move);
 
   return (
     <div className="app">
-      <Map state={state} />
-      {state.gameOver && (
-        <GameOver onRestart={() => setState(initialState)} />
-      )}
-      <Controls state={state} setState={setState} />
+      <TileMap />
+      <Player x={player.x} y={player.y} />
+      <Controls move={move} />
     </div>
   );
 }

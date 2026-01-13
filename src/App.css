@@ -6,19 +6,15 @@ body {
 }
 
 .app {
-  width: 360px;
-  height: 640px;
+  width: 256px;
+  height: 360px;
+  margin: auto;
   position: relative;
-  overflow: hidden;
-  background: #000;
 }
 
 .map {
   width: 256px;
   height: 256px;
-  background: url("/sprites/grass.png") repeat;
-  background-size: 16px 16px;
-  image-rendering: pixelated;
   position: relative;
 }
 
@@ -56,9 +52,6 @@ body {
 }
 
 .controls {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4px;
