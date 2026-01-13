@@ -31,8 +31,6 @@ export function movePlayer(dx, dy) {
 
   if (dx === 1) p.dir = "right";
   if (dx === -1) p.dir = "left";
-  if (dy === 1) p.dir = "down";
-  if (dy === -1) p.dir = "up";
 
   const nx = p.x + dx;
   const ny = p.y + dy;
@@ -50,7 +48,7 @@ export function movePlayer(dx, dy) {
     frontStone.y = sy;
   }
 
-  // PULL
+  // PULL (uses last horizontal direction, which is what we want)
   const back = DIR[p.dir];
   const bx = p.x - back.x;
   const by = p.y - back.y;

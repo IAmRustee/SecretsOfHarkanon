@@ -6,7 +6,7 @@ export default function Player() {
 
   return (
     <img
-      src="/tiles/player/player_idle.png"
+      src="/tiles/player/character_Lwalk_0.png"
       style={{
         position: "absolute",
         left: x * TILE,

@@ -1,4 +1,5 @@
-import { TILE } from "../game/gameState";
+import { TILE } from "../game/constants";
+import { state } from "../game/gameState";
 
 export default function Shadow({ x, y }) {
   return (

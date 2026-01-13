@@ -11,6 +11,7 @@ export function getTileSprite(symbol) {
     case "g": return "/tiles/gate/gate_opened.png";
     case "?": return "/tiles/placeholder.png"
     case "M": return "/tiles/floor/moon_tile.png"
+    case "s": return "/tiles/shadow/shadow.png"
     default: return null;
   }
 }

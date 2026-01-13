@@ -13,3 +13,14 @@ export function updatePlates() {
     state.gates[plate.gateId].open = active;
   });
 }
+export function checkFinish() {
+  const p = state.player;
+
+  const isOnFinish = state.finishTiles.some(
+    t => t.x === p.x && t.y === p.y
+  );
+
+  if (isOnFinish) {
+    state.finished = true;
+  }
+}
