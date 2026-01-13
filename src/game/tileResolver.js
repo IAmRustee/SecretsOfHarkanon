@@ -8,6 +8,7 @@ export function getTileSprite(symbol) {
     case "P": return "/tiles/objects/pressure_plate_1.png";
     case "f": return "/tiles/objects/pressure_plate_2.png";
     case "G": return "/tiles/gate/gate_closed.png";
+    case "g": return "/tiles/gate/gate_opened.png";
     case "?": return "/tiles/placeholder.png"
     default: return null;
   }
